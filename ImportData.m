@@ -1,6 +1,11 @@
 %File to import Data to make Adj Matrix and Connection Matrix
 %Calls Data File and is called by main alg. function
-function [connections, connMatrix] = ImportData()
+
+%rawData is a 3 colm. matrix that has the x, y, z coordinates of each point
+%Each node's number matches its index
+%A node's connections can be found in the connection matrix at the index
+
+function [connections, connMatrix, rawData] = ImportData()
 
     %Import Data
     rawData = importdata('stepData.xlsx')
