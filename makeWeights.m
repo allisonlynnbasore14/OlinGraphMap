@@ -3,12 +3,13 @@
 %between points (i.e. the weights)
 %It returns a weights matrix that is numberOfNodes by numberOfNodes in size
 
-function weights = makeWeights(connMatrix, rawData)
+function [weights, numEdges] = makeWeights(connMatrix, rawData)
     
     N = size(connMatrix,1);
     
     weights = zeros(N,N)
 
+    numEdges = 0;
     for i = 1:N
         for j = 1:N
             valToStore = 0;
@@ -28,7 +29,7 @@ function weights = makeWeights(connMatrix, rawData)
                 z2 = rawData(nodeBNum,3);
                 
                 valToStore = sqrt((x2-x1)^2 + (y2-y1)^2 + (z2-z1)^2);
-               
+                numEdges = numEdges + 1;
             end
             
             weights(i,j) = valToStore;
