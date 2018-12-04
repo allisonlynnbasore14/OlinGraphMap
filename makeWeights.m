@@ -7,7 +7,7 @@ function [weights, numEdges] = makeWeights(connMatrix, rawData)
     
     N = size(connMatrix,1);
     
-    weights = zeros(N,N)
+    weights = zeros(N,N);
 
     numEdges = 0;
     for i = 1:N

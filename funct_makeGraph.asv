@@ -48,9 +48,15 @@ if cM(indexA, indexB) == 1
 end
 
 if cM(indexA, indexB) == 0
-    %%% algorithm
+    index_to_search = [];
+    index_index = 1
+    for i = 1:length(weights)
+        if cM(indexA,i) == 1
+            index_to_search[ind
 end
 
+X = ['Total step number from point ',num2str(indexA),' to point ',num2str(indexB),' is ' ,num2str(output_steps),'.'];
+disp(X)
 end
 % return edge value (Weight)
 % If they're not adjacent, make the list of possible routes - use adjacency

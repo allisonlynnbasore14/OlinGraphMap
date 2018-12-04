@@ -8,10 +8,10 @@
 function [connections, connMatrix, rawData] = ImportData()
 
     %Import Data
-    rawData = importdata('stepData.xlsx')
-    nodeLabels = importdata('nodeLabels.csv')
-    connections = importdata('connectionLabels.csv')
-    dataLen = size(rawData,1)
+    rawData = importdata('stepData.csv');
+    nodeLabels = importdata('nodeLabels.csv');
+    connections = importdata('connectionLabels.csv');
+    dataLen = size(rawData,1);
     
     %Make Matrix
     connMatrix = zeros(dataLen, dataLen); % A 17 by 17 matrix that shows if nodes are connected or not
