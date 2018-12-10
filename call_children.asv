@@ -1,0 +1,14 @@
+function [children, children_weights] = call_children(cM, weights, origin, dest, path)
+    path_index = 0;
+    % path = empty array 
+    % initialize 
+    
+    while origin ~= dest
+    [children, children_weights] = make_children(cM, weights, origin);
+    children = children(min(children_weights));
+    path(path_index) = children;
+    path_index = path_index + 1;
+        
+    end
+
+end

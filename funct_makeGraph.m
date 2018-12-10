@@ -1,4 +1,4 @@
-function [] = funct_makeGraph(indexA, indexB)
+function [cM, weights] = funct_makeGraph(indexA, indexB)
 
 [conn,cM,rD]= ImportData();
 [weights, e_num2] = makeWeights(cM, rD);
@@ -42,33 +42,8 @@ if indexA == indexB
 end
 
 % Check if two outputs are adjacent
-
-if cM(indexA, indexB) == 1
-    output_steps = weights(indexA, indexB);
-end
-
-if cM(indexA, indexB) == 0
-    % if indexA and index B are not adjacent
-   
-    % make the list of index
-    index_to_search = [];
-    % index of index_to_search
-    index_index = 1;
-    
-    % create index_to_search, which is a list of adjacent nodes of indexA
-    for i = 1:length(weights)
-        if cM(indexA,i) == 1
-            index_to_search(index_index) = i;
-            index_index = index_index + 1;
-        end
-    end
-    
-    display(index_to_search)
-    output_steps = 0;
-   
-end
-
-X = ['Total step number from point ',num2str(indexA),' to point ',num2str(indexB),' is ' ,num2str(output_steps),'.'];
+total_weights = 0;
+X = ['Total step number from point ',num2str(indexA),' to point ',num2str(indexB),' is ' ,num2str(total_weights),'.'];
 disp(X)
 end
 % return edge value (Weight)

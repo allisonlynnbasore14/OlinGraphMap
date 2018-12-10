@@ -1,0 +1,20 @@
+function [total_weights,path] = call_children2(cM, weights, origin, dest)
+
+children = [];
+children_weights = [];
+index_children = 1;
+path = 0;
+total_weights = 0;
+for i = 1:length(cM)
+    if cM(origin,i) == 1
+        children(index_children) = i;
+        children_weights(index_children) = weights(origin,i);
+        index_children = index_children + 1;
+    end
+end
+
+for i = 1:length(children)
+    [children_weights,children] = call_children2(cM, weights, children(i), dest);
+    
+
+end

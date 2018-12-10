@@ -1,0 +1,23 @@
+function [children, children_weights, visited] = make_children(cM, weights, origin, visited)
+
+children = [];
+children_weights = [];
+index_children = 1;
+for i = 1:length(cM)
+    if cM(origin,i) == 1
+       [status_visited, visited] = visited_elements(origin, visited);
+       % if origin doesn't exist in visited, make children
+        if status_visited == 0
+        children(index_children) = i;
+        children_weights(index_children) = weights(origin,i);
+        index_children = index_children + 1;
+        
+        % append children to visited set
+        visited = visited + children;
+        else 
+            break
+        end
+    end
+end
+
+end
